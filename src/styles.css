@@ -1,0 +1,127 @@
+@import "tailwindcss" source(none);
+@source "../src";
+@import "tw-animate-css";
+
+@custom-variant dark (&:is(.dark *));
+
+/* Amanda Bombini — Quiet Luxury Design System
+   Palette: #d6d0bd (warm stone), #cec9c1 (champagne matte), #657157 (olive shadow)
+*/
+
+@theme inline {
+  --color-background: var(--background);
+  --color-foreground: var(--foreground);
+  --color-stone: var(--stone);
+  --color-champagne: var(--champagne);
+  --color-olive: var(--olive);
+  --color-olive-deep: var(--olive-deep);
+  --color-graphite: var(--graphite);
+  --color-nude: var(--nude);
+  --color-bone: var(--bone);
+  --color-border: var(--border);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-primary: var(--olive);
+  --color-primary-foreground: #f5f2ea;
+  --font-serif: "Cormorant Garamond", "Didot", "Bodoni Moda", Georgia, serif;
+  --font-sans: "Helvetica Neue", "Inter", system-ui, sans-serif;
+}
+
+:root {
+  --background: #f5f2ea;
+  --foreground: #2a2722;
+  --stone: #d6d0bd;
+  --champagne: #cec9c1;
+  --olive: #657157;
+  --olive-deep: #4f5a44;
+  --graphite: #2a2722;
+  --nude: #b8ad9b;
+  --bone: #efeae0;
+  --border: #d6d0bd;
+  --muted: #efeae0;
+  --muted-foreground: #6f6a60;
+}
+
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    text-rendering: optimizeLegibility;
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    font-family: var(--font-sans);
+    font-weight: 300;
+    letter-spacing: 0.01em;
+    line-height: 1.7;
+  }
+  h1, h2, h3, h4 {
+    font-family: var(--font-serif);
+    font-weight: 300;
+    letter-spacing: -0.01em;
+    line-height: 1.05;
+  }
+  ::selection { background: #657157; color: #f5f2ea; }
+}
+
+@layer utilities {
+  .font-serif { font-family: var(--font-serif); }
+  .font-sans { font-family: var(--font-sans); }
+  .tracking-luxe { letter-spacing: 0.32em; }
+  .tracking-editorial { letter-spacing: 0.18em; }
+  .text-balance { text-wrap: balance; }
+  .reveal {
+    opacity: 0;
+    transform: translateY(24px);
+    transition: opacity 1.4s cubic-bezier(.2,.7,.2,1), transform 1.4s cubic-bezier(.2,.7,.2,1);
+  }
+  .reveal.in {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .link-underline {
+    position: relative;
+    display: inline-block;
+  }
+  .link-underline::after {
+    content: "";
+    position: absolute;
+    left: 0; right: 0; bottom: -4px;
+    height: 1px;
+    background: currentColor;
+    transform: scaleX(0);
+    transform-origin: right;
+    transition: transform .8s cubic-bezier(.2,.7,.2,1);
+  }
+  .link-underline:hover::after {
+    transform: scaleX(1);
+    transform-origin: left;
+  }
+  .btn-olive {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.75rem;
+    padding: 1rem 2rem;
+    background: #657157;
+    color: #f5f2ea;
+    font-family: var(--font-sans);
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    transition: background .6s ease, transform .6s ease;
+  }
+  .btn-olive:hover { background: #4f5a44; }
+  .btn-ghost {
+    display: inline-flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-size: 0.72rem;
+    letter-spacing: 0.32em;
+    text-transform: uppercase;
+    color: #2a2722;
+  }
+  .hairline { height: 1px; background: currentColor; opacity: .35; }
+}

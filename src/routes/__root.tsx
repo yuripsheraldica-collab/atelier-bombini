@@ -68,6 +68,12 @@ export const Route = createRootRouteWithContext<{ queryClient: QueryClient }>()(
       },
       { property: "og:type", content: "website" },
       { name: "twitter:card", content: "summary_large_image" },
+      { name: "twitter:title", content: "Amanda Bombini — Clínica de Estética Avançada" },
+      { name: "description", content: "Amanda Bombini Studio offers an ultra-premium website for an advanced aesthetic clinic, inspired by international luxury boutiques." },
+      { property: "og:description", content: "Amanda Bombini Studio offers an ultra-premium website for an advanced aesthetic clinic, inspired by international luxury boutiques." },
+      { name: "twitter:description", content: "Amanda Bombini Studio offers an ultra-premium website for an advanced aesthetic clinic, inspired by international luxury boutiques." },
+      { property: "og:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/96b85473-ff99-4c97-a68d-a26bc7c9f4a6/id-preview-8092cfbe--2c3c56bd-ead3-4cbf-8d2b-4683f163d424.lovable.app-1779897923250.png" },
+      { name: "twitter:image", content: "https://pub-bb2e103a32db4e198524a2e9ed8f35b4.r2.dev/96b85473-ff99-4c97-a68d-a26bc7c9f4a6/id-preview-8092cfbe--2c3c56bd-ead3-4cbf-8d2b-4683f163d424.lovable.app-1779897923250.png" },
     ],
     links: [
       { rel: "stylesheet", href: appCss },

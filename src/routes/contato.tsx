@@ -94,7 +94,7 @@ function Contato() {
               />
             </div>
             <button type="submit" className="btn-olive">
-              {sent ? "Recebido — entraremos em contato" : "Enviar mensagem"}
+              {sent ? "Recebido — entraremos em contato" : "Agendar Avaliação"}
             </button>
           </form>
         </div>

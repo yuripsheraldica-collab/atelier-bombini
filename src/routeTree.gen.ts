@@ -10,6 +10,7 @@
 
 import { Route as rootRouteImport } from './routes/__root'
 import { Route as TratamentosRouteImport } from './routes/tratamentos'
+import { Route as TecnologiaRouteImport } from './routes/tecnologia'
 import { Route as ResultadosRouteImport } from './routes/resultados'
 import { Route as JournalRouteImport } from './routes/journal'
 import { Route as DraAmandaRouteImport } from './routes/dra-amanda'
@@ -20,6 +21,11 @@ import { Route as IndexRouteImport } from './routes/index'
 const TratamentosRoute = TratamentosRouteImport.update({
   id: '/tratamentos',
   path: '/tratamentos',
+  getParentRoute: () => rootRouteImport,
+} as any)
+const TecnologiaRoute = TecnologiaRouteImport.update({
+  id: '/tecnologia',
+  path: '/tecnologia',
   getParentRoute: () => rootRouteImport,
 } as any)
 const ResultadosRoute = ResultadosRouteImport.update({
@@ -60,6 +66,7 @@ export interface FileRoutesByFullPath {
   '/dra-amanda': typeof DraAmandaRoute
   '/journal': typeof JournalRoute
   '/resultados': typeof ResultadosRoute
+  '/tecnologia': typeof TecnologiaRoute
   '/tratamentos': typeof TratamentosRoute
 }
 export interface FileRoutesByTo {
@@ -69,6 +76,7 @@ export interface FileRoutesByTo {
   '/dra-amanda': typeof DraAmandaRoute
   '/journal': typeof JournalRoute
   '/resultados': typeof ResultadosRoute
+  '/tecnologia': typeof TecnologiaRoute
   '/tratamentos': typeof TratamentosRoute
 }
 export interface FileRoutesById {
@@ -79,6 +87,7 @@ export interface FileRoutesById {
   '/dra-amanda': typeof DraAmandaRoute
   '/journal': typeof JournalRoute
   '/resultados': typeof ResultadosRoute
+  '/tecnologia': typeof TecnologiaRoute
   '/tratamentos': typeof TratamentosRoute
 }
 export interface FileRouteTypes {
@@ -90,6 +99,7 @@ export interface FileRouteTypes {
     | '/dra-amanda'
     | '/journal'
     | '/resultados'
+    | '/tecnologia'
     | '/tratamentos'
   fileRoutesByTo: FileRoutesByTo
   to:
@@ -99,6 +109,7 @@ export interface FileRouteTypes {
     | '/dra-amanda'
     | '/journal'
     | '/resultados'
+    | '/tecnologia'
     | '/tratamentos'
   id:
     | '__root__'
@@ -108,6 +119,7 @@ export interface FileRouteTypes {
     | '/dra-amanda'
     | '/journal'
     | '/resultados'
+    | '/tecnologia'
     | '/tratamentos'
   fileRoutesById: FileRoutesById
 }
@@ -118,6 +130,7 @@ export interface RootRouteChildren {
   DraAmandaRoute: typeof DraAmandaRoute
   JournalRoute: typeof JournalRoute
   ResultadosRoute: typeof ResultadosRoute
+  TecnologiaRoute: typeof TecnologiaRoute
   TratamentosRoute: typeof TratamentosRoute
 }
 
@@ -128,6 +141,13 @@ declare module '@tanstack/react-router' {
       path: '/tratamentos'
       fullPath: '/tratamentos'
       preLoaderRoute: typeof TratamentosRouteImport
+      parentRoute: typeof rootRouteImport
+    }
+    '/tecnologia': {
+      id: '/tecnologia'
+      path: '/tecnologia'
+      fullPath: '/tecnologia'
+      preLoaderRoute: typeof TecnologiaRouteImport
       parentRoute: typeof rootRouteImport
     }
     '/resultados': {
@@ -182,8 +202,19 @@ const rootRouteChildren: RootRouteChildren = {
   DraAmandaRoute: DraAmandaRoute,
   JournalRoute: JournalRoute,
   ResultadosRoute: ResultadosRoute,
+  TecnologiaRoute: TecnologiaRoute,
   TratamentosRoute: TratamentosRoute,
 }
 export const routeTree = rootRouteImport
   ._addFileChildren(rootRouteChildren)
   ._addFileTypes<FileRouteTypes>()
+
+import type { getRouter } from './router.tsx'
+import type { startInstance } from './start.ts'
+declare module '@tanstack/react-start' {
+  interface Register {
+    ssr: true
+    router: Awaited<ReturnType<typeof getRouter>>
+    config: Awaited<ReturnType<typeof startInstance.getOptions>>
+  }
+}

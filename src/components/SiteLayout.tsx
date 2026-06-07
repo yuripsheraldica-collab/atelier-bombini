@@ -3,11 +3,11 @@ import { useEffect, useState, type ReactNode } from "react";
 
 const NAV = [
   { to: "/clinica", label: "A Clínica" },
-  { to: "/dra-amanda", label: "Dra. Amanda Bombini" },
+  { to: "/dra-amanda", label: "Dra. Amanda" },
   { to: "/tratamentos", label: "Tratamentos" },
   { to: "/tecnologia", label: "Tecnologia" },
   { to: "/resultados", label: "Resultados" },
-  { to: "/journal", label: "Blog" },
+  { to: "/journal", label: "Journal" },
   { to: "/contato", label: "Contato" },
 ];
 

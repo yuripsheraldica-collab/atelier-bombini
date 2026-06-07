@@ -54,36 +54,36 @@ export function SiteLayout({ children, transparentNav = false }: { children: Rea
           scrolled || open ? "bg-[#f5f2ea]/95 backdrop-blur border-b border-stone/40" : "bg-transparent"
         }`}
       >
-        <div className="mx-auto flex max-w-[1500px] items-center justify-between px-6 py-5 lg:px-12">
-          <Link to="/" className="flex flex-col leading-none">
-            <span className={`font-serif text-xl tracking-[0.18em] ${navIsLight ? "text-[#f5f2ea]" : "text-graphite"}`}>
+        <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-8 px-6 py-5 lg:px-12">
+          <Link to="/" className="flex items-baseline gap-3 leading-none shrink-0">
+            <span className={`font-serif text-xl tracking-[0.22em] whitespace-nowrap ${navIsLight ? "text-[#f5f2ea]" : "text-graphite"}`}>
               AMANDA BOMBINI
             </span>
-            <span className={`mt-1 text-[9px] tracking-[0.42em] ${navIsLight ? "text-[#f5f2ea]/70" : "text-muted-foreground"}`}>
-              CLÍNICA DE ESTÉTICA AVANÇADA
+            <span className={`hidden md:inline text-[9px] tracking-[0.42em] whitespace-nowrap ${navIsLight ? "text-[#f5f2ea]/60" : "text-muted-foreground"}`}>
+              ATELIER
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-7 xl:flex">
+          <nav className="hidden items-center gap-6 lg:flex">
             {NAV.map((n) => (
               <Link
                 key={n.to}
                 to={n.to}
-                className={`link-underline text-[10.5px] tracking-[0.24em] uppercase ${
+                className={`link-underline text-[10.5px] tracking-[0.22em] uppercase whitespace-nowrap ${
                   navIsLight ? "text-[#f5f2ea]/90 hover:text-[#f5f2ea]" : "text-graphite/80 hover:text-graphite"
                 }`}
               >
                 {n.label}
               </Link>
             ))}
-            <Link to="/contato" className="btn-olive !py-3 !px-5">
+            <Link to="/contato" className="btn-olive !py-3 !px-5 whitespace-nowrap">
               Agendar Avaliação
             </Link>
           </nav>
 
           <button
             onClick={() => setOpen((v) => !v)}
-            className={`xl:hidden text-[11px] tracking-[0.3em] uppercase ${navIsLight ? "text-[#f5f2ea]" : "text-graphite"}`}
+            className={`lg:hidden text-[11px] tracking-[0.3em] uppercase ${navIsLight ? "text-[#f5f2ea]" : "text-graphite"}`}
             aria-label="Menu"
           >
             {open ? "Fechar" : "Menu"}
@@ -91,7 +91,7 @@ export function SiteLayout({ children, transparentNav = false }: { children: Rea
         </div>
 
         {open && (
-          <div className="xl:hidden border-t border-stone/40 bg-[#f5f2ea]">
+          <div className="lg:hidden border-t border-stone/40 bg-[#f5f2ea]">
             <nav className="flex flex-col px-6 py-6">
               {NAV.map((n) => (
                 <Link key={n.to} to={n.to} className="py-3 font-serif text-2xl text-graphite">

@@ -45,13 +45,13 @@ export function SiteLayout({ children, transparentNav = false }: { children: Rea
     return () => io.disconnect();
   }, [location.pathname]);
 
-  const navIsLight = transparentNav && !scrolled;
+  const navIsLight = false;
 
   return (
     <div className="min-h-screen bg-background text-foreground">
       <header
         className={`fixed inset-x-0 top-0 z-50 transition-all duration-700 ${
-          scrolled || open ? "bg-[#f5f2ea]/95 backdrop-blur border-b border-stone/40" : "bg-transparent"
+          scrolled || open ? "bg-[#f5f2ea]/95 backdrop-blur border-b border-stone/40" : "bg-[#f5f2ea]/80 backdrop-blur-sm"
         }`}
       >
         <div className="mx-auto flex max-w-[1500px] items-center justify-between gap-8 px-6 py-5 lg:px-12">

@@ -64,7 +64,7 @@ export function SiteLayout({ children, transparentNav = false }: { children: Rea
             </span>
           </Link>
 
-          <nav className="hidden items-center gap-6 lg:flex">
+          <nav className="hidden min-w-0 items-center gap-5 xl:flex">
             {NAV.map((n) => (
               <Link
                 key={n.to}
@@ -76,14 +76,14 @@ export function SiteLayout({ children, transparentNav = false }: { children: Rea
                 {n.label}
               </Link>
             ))}
-            <Link to="/contato" className="btn-olive !py-3 !px-5 whitespace-nowrap">
+            <Link to="/contato" className="btn-olive shrink-0 !px-4 !py-3 whitespace-nowrap">
               Agendar Avaliação
             </Link>
           </nav>
 
           <button
             onClick={() => setOpen((v) => !v)}
-            className={`lg:hidden text-[11px] tracking-[0.3em] uppercase ${navIsLight ? "text-[#f5f2ea]" : "text-graphite"}`}
+            className={`xl:hidden text-[11px] tracking-[0.3em] uppercase ${navIsLight ? "text-[#f5f2ea]" : "text-graphite"}`}
             aria-label="Menu"
           >
             {open ? "Fechar" : "Menu"}
@@ -91,7 +91,7 @@ export function SiteLayout({ children, transparentNav = false }: { children: Rea
         </div>
 
         {open && (
-          <div className="lg:hidden border-t border-stone/40 bg-[#f5f2ea]">
+          <div className="xl:hidden border-t border-stone/40 bg-[#f5f2ea]">
             <nav className="flex flex-col px-6 py-6">
               {NAV.map((n) => (
                 <Link key={n.to} to={n.to} className="py-3 font-serif text-2xl text-graphite">
@@ -258,7 +258,7 @@ export function PageHero({
       <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-12 px-6 lg:grid-cols-12 lg:px-12">
         <div className="lg:col-span-5 lg:pt-16 reveal">
           <Eyebrow>{eyebrow}</Eyebrow>
-          <h1 className="mt-8 font-serif text-5xl leading-[1.02] tracking-tight lg:text-7xl text-balance">
+          <h1 className="mt-8 max-w-full font-serif text-4xl leading-[1.02] sm:text-5xl lg:text-[50px] xl:text-7xl text-balance">
             {title}
           </h1>
           {subtitle && (

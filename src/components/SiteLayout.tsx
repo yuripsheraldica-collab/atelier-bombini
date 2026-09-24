@@ -258,7 +258,7 @@ export function PageHero({
       <div className="mx-auto grid max-w-[1500px] grid-cols-1 gap-12 px-6 lg:grid-cols-12 lg:px-12">
         <div className="lg:col-span-5 lg:pt-16 reveal">
           <Eyebrow>{eyebrow}</Eyebrow>
-          <h1 className="mt-8 max-w-full font-serif text-4xl leading-[1.02] sm:text-5xl lg:text-[50px] xl:text-7xl text-balance">
+          <h1 className="mt-8 max-w-full break-words font-serif text-4xl leading-[1.02] sm:text-5xl lg:text-[48px] xl:text-[58px] 2xl:text-7xl text-balance">
             {title}
           </h1>
           {subtitle && (

@@ -1,6 +1,6 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout, OliveBand, Eyebrow } from "@/components/SiteLayout";
-import doctor from "@/assets/doctor.jpg";
+import doctorAsset from "@/assets/dra-amanda-home.jpg.asset.json";
 import clinic from "@/assets/clinic.jpg";
 import reception from "@/assets/clinic-reception.jpg";
 import room from "@/assets/clinic-room.jpg";
@@ -8,6 +8,8 @@ import facial from "@/assets/facial.jpg";
 import corporal from "@/assets/corporal.jpg";
 import skincare from "@/assets/skincare.jpg";
 import tecnologia from "@/assets/tecnologia.jpg";
+
+const doctor = doctorAsset.url;
 
 export const Route = createFileRoute("/")({
   head: () => ({

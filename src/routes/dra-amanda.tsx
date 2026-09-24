@@ -1,6 +1,8 @@
 import { createFileRoute, Link } from "@tanstack/react-router";
 import { SiteLayout, Eyebrow, OliveBand } from "@/components/SiteLayout";
-import doctor from "@/assets/doctor.jpg";
+import doctorAsset from "@/assets/dra-amanda-perfil.jpg.asset.json";
+
+const doctor = doctorAsset.url;
 
 export const Route = createFileRoute("/dra-amanda")({
   head: () => ({
@@ -32,7 +34,7 @@ function DraAmanda() {
             </Link>
           </div>
           <div className="lg:col-span-7 reveal">
-            <img src={doctor} alt="Dra. Amanda Bombini" className="h-[80vh] w-full object-cover" loading="lazy" />
+            <img src={doctor} alt="Dra. Amanda Bombini em seu consultório" className="h-[80vh] w-full object-cover object-center" loading="eager" />
           </div>
         </div>
       </section>
